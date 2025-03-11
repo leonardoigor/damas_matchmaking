@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game Lobby</title>
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login">
+        <input type="text" id="username" placeholder="Username">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="lobby" style="display: none;">
+        <button onclick="findMatch()">Procurar Partida</button>
+    </div>
+
+    <div id="game" style="display: none;">
+        <canvas id="gameCanvas" width="500" height="500"></canvas>
+        <button id="endGameButton" onclick="endGame()">Finalizar Partida</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

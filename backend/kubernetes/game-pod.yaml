@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: game-pod-{{ .PodName }} # Nome dinâmico
+  labels:
+    app: game-pod-{{ .PodName }} # Mesma label dinâmica usada pelo Service
+spec:
+  containers:
+    - name: game-pod
+      image: igormendonca/game-pod
+      ports:
+        - containerPort: 8080
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
