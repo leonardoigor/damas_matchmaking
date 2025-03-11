@@ -1,0 +1,173 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #2a2a40;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+h1,
+h2 {
+    margin-bottom: 1rem;
+    color: #ff6f61;
+}
+
+input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6f61;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4a3d;
+}
+
+#cancel-queue {
+    background-color: #6c757d;
+}
+
+#cancel-queue:hover {
+    background-color: #5a6268;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff6f61;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+canvas {
+    margin-top: 1rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+/* Container do placar e vez */
+#info {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Container do placar e vez */
+#info {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Indicação de vez do jogador */
+#vez {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Container do placar */
+#placar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Estilo de cada item do placar */
+.placar-item {
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo específico para o placar das peças azuis */
+#placar-azuis {
+    background-color: #e3f2fd;
+    /* Fundo azul claro */
+    border: 2px solid #0000ff;
+    /* Borda azul */
+}
+
+/* Estilo específico para o placar das peças vermelhas */
+#placar-vermelhas {
+    background-color: #ffebee;
+    /* Fundo vermelho claro */
+    border: 2px solid #ff0000;
+    /* Borda vermelha */
+}
+
+/* Estilo dos rótulos do placar */
+.placar-label {
+    color: #555;
+}
+
+/* Estilo dos pontos do placar */
+.placar-pontos {
+    color: #000;
+    font-size: 24px;
+}

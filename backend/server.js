@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 const k8s = require('@kubernetes/client-node');
 const fs = require('fs');
 const yaml = require('js-yaml');
+const path = require("path")
 
 const wss = new WebSocket.Server({ port: 3000 });
 const matchQueue = [];
@@ -72,17 +73,18 @@ function handleJoinQueue(ws) {
 
 async function startNewGame(players) {
     try {
-        const yamlPath = './kubernetes/game-pod.yaml';
+        const yamlPath = path.join(__dirname, 'kubernetes', 'game-pod.yaml');
+        const normalizedPath = path.normalize(yamlPath);
         let fileContents = fs.readFileSync(yamlPath, 'utf8');
-        let podName = `game-pod-${Date.now()}`;
+        let podName = `damas-pod-${Date.now()}`;
         fileContents = fileContents.replace(/{{ .PodName }}/g, podName);
 
         const podManifest = {
             metadata: { name: podName, labels: { app: podName } },
             spec: {
                 containers: [{
-                    name: 'game-pod',
-                    image: 'igormendonca/game-pod',
+                    name: 'damas-pod',
+                    image: 'igormendonca/damas-pod',
                     ports: [{ containerPort: 8080 }]
                 }]
             }

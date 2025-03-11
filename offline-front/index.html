@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Damas</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        #info {
+            text-align: center;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #vez {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #placar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 20px;
+        }
+
+        .placar-item {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #pontosPretas {
+            color: #0000ff;
+            /* Azul para as peças pretas */
+        }
+
+        #pontosVermelhas {
+            color: #ff0000;
+            /* Vermelho para as peças vermelhas */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="damasCanvas" width="400" height="400"></canvas>
+    <div id="info">
+        <div id="vez">Vez: Azuis</div>
+        <div id="placar">
+            <div class="placar-item">
+                <span>Azuis: <span id="pontosPretas">0</span></span>
+            </div>
+            <div class="placar-item">
+                <span>Vermelhas: <span id="pontosVermelhas">0</span></span>
+            </div>
+        </div>
+    </div>
+    <script src="damas.js"></script>
+</body>
+
+</html>
