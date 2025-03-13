@@ -189,6 +189,15 @@ wss.on('connection', (ws) => {
                     broadcastGameState();
                 }
                 break;
+            case 'my-username':
+                // const { username, playerId } = data
+                // gameState[playerId]["username"] = username
+                // ws.send(JSON.stringify({
+                //     type: 'game_start',
+                //     initialState: gameState,
+                //     playerId
+                // }));
+                break;
         }
     });
 

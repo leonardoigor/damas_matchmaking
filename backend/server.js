@@ -42,6 +42,14 @@ function handleClientMessage(ws, data) {
         case 'end_game':
             handleEndGame(ws, data.podUrl, data.matchId);
             break;
+        case 'cancel_queue':
+            console.log("cancel_queue", data);
+            activeConnections.delete(ws)
+            const index = matchQueue.indexOf(ws);
+            if (index !== -1) {
+                matchQueue.splice(index, 1);
+            }
+            break;
     }
 }
 
@@ -73,6 +81,15 @@ function handleJoinQueue(ws) {
 
 async function startNewGame(players) {
     try {
+        // Notificar jogadores
+        players.forEach(player => {
+            if (player.readyState === WebSocket.OPEN) {
+                player.send(JSON.stringify({
+                    type: 'match_creating'
+                }));
+                activeConnections.delete(player);
+            }
+        });
         const yamlPath = path.join(__dirname, 'kubernetes', 'game-pod.yaml');
         const normalizedPath = path.normalize(yamlPath);
         let fileContents = fs.readFileSync(yamlPath, 'utf8');

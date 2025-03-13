@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div class="container">
+<body style="display: flex;flex-direction: column;">
+    <div id="feedbackConnection">
+        Conectando ao Backend.
+    </div>
+    <div class="container" id="game-content" style="display: none;">
         <!-- Tela de Login -->
         <div id="login-screen" class="screen">
             <h1>Jogo de Damas Online</h1>
@@ -22,7 +25,7 @@
         <!-- Tela de Espera -->
         <div id="waiting-screen" class="screen hidden">
             <h2>Bem-vindo, <span id="username-display"></span>!</h2>
-            <p>Procurando partida...</p>
+            <p id="feed-back-match-looking">Procurando partida...</p>
             <div class="loader"></div>
             <button id="cancel-queue">Cancelar</button>
         </div>
@@ -30,7 +33,7 @@
         <!-- Tela do Jogo -->
         <div id="game-screen" class="screen hidden">
             <h2>Partida Encontrada!</h2>
-            <p id="conectando-texto">Conectando ao jogo...</p>
+            <p id="connection-pod">Conectando ao jogo...</p>
             <canvas id="damasCanvas" width="400" height="400"></canvas>
         </div>
     </div>
@@ -51,6 +54,9 @@
                 <span class="placar-pontos" id="pontosVermelhas">0</span>
             </div>
         </div>
+        <div style="color: black;font-size: 18px;font-weight: 600;margin-top: 20px;">Minha Peça: <span
+                id="myPeace">Azuis</span> </div>
+
     </div>
 
     <script src="client.js"></script>
